@@ -15,14 +15,49 @@ using System.Windows.Shapes;
 
 namespace Wpf_Sharp
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+
+    //">_<"
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        public int offset = 120;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox Box = new TextBox
+            {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Width = 30,
+                Margin = new Thickness(21, offset, 0, 0),
+            };
+            gMine.Children.Add(Box);
+            Box.Focus();
+            offset += 45;
+            Box.TextChanged += Resultat;
+        }
+
+        private void Resultat(object sender, object args)
+        {
+            int result = 0;
+            foreach (object obj in gMine.Children)
+            {
+                if (obj is TextBox)
+                {
+                    TextBox tBox = (TextBox)obj;
+                    int re = Convert.ToInt32(tBox.Text);
+                    result += re;
+                }
+            }
+
+            Label.Content = "Result " + result;
+        }
+
+        
     }
 }

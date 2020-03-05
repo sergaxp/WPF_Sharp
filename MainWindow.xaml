@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Sharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Manager" Height="450" Width="500">
+    <Grid x:Name="gMine">
+        <Label Content="Result" Name="Label" HorizontalAlignment="Left" Height="42" Margin="33,46,0,0" VerticalAlignment="Top" Width="162"/>
+        <Button Content="Plus" IsDefault="True"  Name="Button" HorizontalAlignment="Left" Margin="316,46,0,0" VerticalAlignment="Top" Width="56" Height="53" Click="Button_Click"/>
         
     </Grid>
 </Window>
